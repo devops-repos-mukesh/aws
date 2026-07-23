@@ -212,26 +212,7 @@ The EC2 instance is now joined to the Active Directory domain.
 
 # 10. Architecture
 
-```text
-                     AWS Directory Service
-                 (Managed Microsoft AD)
-                          |
-          +---------------+---------------+
-          |                               |
-   Domain Controller 1             Domain Controller 2
-       (Availability Zone 1)       (Availability Zone 2)
-                \                     /
-                 \                   /
-                  +-----------------+
-                          |
-                         VPC
-                          |
-        +-----------------+-----------------+
-        |                                   |
-   Windows EC2                   Amazon FSx
-        |
-Business Applications
-```
+<img width="695" height="710" alt="Untitled-2026-07-23-1225" src="https://github.com/user-attachments/assets/25d297f3-40b7-47ff-be65-e427bfc18c73" />
 
 ---
 
