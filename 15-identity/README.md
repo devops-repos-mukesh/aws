@@ -163,11 +163,8 @@ Authentication service for web and mobile apps. User Pools (directory) and Ident
 
 ## Architecture
 
-```
-App User → Cognito User Pool → JWT Tokens → API Gateway / App Backend
-                ↓
-         Identity Pool → Temporary AWS Credentials → S3/DynamoDB
-```
+<img width="1020" height="437" alt="Untitled-2026-07-23-1225" src="https://github.com/user-attachments/assets/9f579c79-c858-42e8-af19-cfee5b227cfb" />
+
 
 ## Components
 
