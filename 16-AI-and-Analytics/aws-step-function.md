@@ -70,19 +70,8 @@ With Step Functions:
 
 # 3. Workflow Architecture
 
-```text
-                Client
-                   │
-                   ▼
-        AWS Step Functions
-                   │
-    ┌──────────────┼──────────────┐
-    ▼              ▼              ▼
- Amazon S3     AWS Lambda      AWS Glue
-                   │
-                   ▼
-             Success / Fail
-```
+<img width="1202" height="705" alt="image" src="https://github.com/user-attachments/assets/b16e5d9b-56a5-4b4a-be7b-23ab879a221e" />
+
 
 Each step is executed sequentially unless configured for parallel execution.
 
@@ -102,6 +91,10 @@ It contains:
 - Retry policies
 - Error handling
 
+
+<img width="1920" height="951" alt="image" src="https://github.com/user-attachments/assets/d0d6898d-422c-4364-ac54-3ca5c2747016" />
+<img width="1920" height="951" alt="image" src="https://github.com/user-attachments/assets/40d70325-4880-4bb3-b42d-8adbf92f6d46" />
+
 ---
 
 ## States
@@ -118,6 +111,8 @@ Common state types include:
 - Pass
 - Succeed
 - Fail
+- 
+<img width="1920" height="951" alt="image" src="https://github.com/user-attachments/assets/7739d4d1-3350-42c0-bb1b-e6b4e7da3c62" />
 
 ---
 
@@ -130,6 +125,9 @@ Performs an action such as:
 - Start a Glue Job
 - Publish an SNS message
 
+  
+<img width="378" height="904" alt="image" src="https://github.com/user-attachments/assets/52570a03-2e21-41f9-9a9b-f86559b58da6" />
+
 ---
 
 ## Wait State
@@ -140,6 +138,9 @@ Pauses the workflow for:
 - Timestamp
 - Duration
 
+  
+<img width="378" height="904" alt="image" src="https://github.com/user-attachments/assets/f11f8bb8-30b4-4eed-9690-24ce578139ca" />
+
 ---
 
 ## Choice State
@@ -148,15 +149,8 @@ Implements conditional logic similar to an **if-else** statement.
 
 Example:
 
-```text
-Object Exists?
-      │
- ┌────┴────┐
- │         │
-Yes        No
- │         │
-Success   Fail
-```
+
+<img width="728" height="801" alt="image" src="https://github.com/user-attachments/assets/b8a23fde-555f-44ad-9e6c-4c260f05e124" />
 
 ---
 
@@ -164,11 +158,17 @@ Success   Fail
 
 Marks successful completion of the workflow.
 
+
+<img width="378" height="904" alt="image" src="https://github.com/user-attachments/assets/cd86e116-510b-4d75-8b55-019fdbb727b1" />
+
 ---
 
 ## Fail State
 
 Stops workflow execution due to an error or failed condition.
+
+
+<img width="378" height="904" alt="image" src="https://github.com/user-attachments/assets/5b6690e1-c8d9-4760-ae0f-35ab46d539da" />
 
 ---
 
@@ -176,29 +176,8 @@ Stops workflow execution due to an error or failed condition.
 
 This workflow demonstrates how Step Functions can orchestrate Amazon S3 operations.
 
-```text
-Start
-   │
-   ▼
-CreateBucket
-   │
-   ▼
-Wait (10 sec)
-   │
-   ▼
-CopyObject
-   │
-   ▼
-Wait (5 sec)
-   │
-   ▼
-Choice
-   │
- ┌─┴─────────┐
- │           │
- ▼           ▼
-Success     Fail
-```
+<img width="728" height="801" alt="image" src="https://github.com/user-attachments/assets/0a1666f2-e3a4-4a0b-a24f-9fe53de1d725" />
+
 
 ### Workflow Explanation
 
@@ -266,6 +245,7 @@ Click
 ```text
 Create state machine
 ```
+<img width="1919" height="911" alt="image" src="https://github.com/user-attachments/assets/f33dd817-6bea-447c-94ab-4230e438cd0a" />
 
 ---
 
@@ -367,6 +347,7 @@ Create or select an IAM execution role with permissions for:
 - s3:GetObject
 - s3:PutObject
 - states:StartExecution
+<img width="1919" height="911" alt="image" src="https://github.com/user-attachments/assets/2ac90330-2469-4c24-864f-062c4618d7de" />
 
 ---
 
@@ -432,6 +413,7 @@ The following state machine was used for this demonstration.
   "QueryLanguage": "JSONata"
 }
 ```
+<img width="558" height="706" alt="image" src="https://github.com/user-attachments/assets/d61075e6-253a-4131-afe4-d7b8ab9722ed" />
 
 ---
 
