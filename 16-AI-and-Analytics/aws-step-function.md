@@ -415,6 +415,18 @@ The following state machine was used for this demonstration.
 ```
 <img width="558" height="706" alt="image" src="https://github.com/user-attachments/assets/d61075e6-253a-4131-afe4-d7b8ab9722ed" />
 
+
+`Successful Execution:`
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/17ef6c1d-6b30-4106-b905-dd064f58f9af" />
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/09f4f115-f4d8-4a41-af45-5690e6da7cdc" />
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/5dde37d9-91d2-419b-9356-1d420ab776f7" />
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/03145483-1c8d-40b6-a446-9a51eec00ec3" />
+
+
 ---
 
 # 8. Best Practices
