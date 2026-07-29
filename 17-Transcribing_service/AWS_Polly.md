@@ -56,19 +56,8 @@ With Amazon Polly:
 
 # 3. Amazon Polly Architecture
 
-```text
-        Application
-             │
-             ▼
-        Amazon Polly
-             │
-   ┌─────────┴─────────┐
-   ▼                   ▼
-Speech Audio      Speech Marks
-   │
-   ▼
-Amazon S3 / Client Application
-```
+<img width="304" height="644" alt="Untitled-2026-07-27-1442" src="https://github.com/user-attachments/assets/69eb2cf1-ce08-485b-889b-192de6cbab64" />
+
 
 ---
 
@@ -80,9 +69,8 @@ The application sends plain text or SSML content to Amazon Polly.
 
 Example:
 
-```text
-Welcome to Amazon Polly.
-```
+<img width="1920" height="1008" alt="image" src="https://github.com/user-attachments/assets/7b440ddf-4e9f-4840-ab4e-68f9c7f67ffa" />
+
 
 ---
 
@@ -93,6 +81,9 @@ Amazon Polly supports three speech engines:
 - Standard
 - Neural (NTTS)
 - Generative
+
+<img width="1920" height="1008" alt="image" src="https://github.com/user-attachments/assets/7b440ddf-4e9f-4840-ab4e-68f9c7f67ffa" />
+
 
 ---
 
@@ -144,28 +135,8 @@ Example:
 
 # 5. Workflow
 
-```text
-User/Application
-        │
-        ▼
-Provide Text
-        │
-        ▼
-Amazon Polly
-        │
-        ▼
-Select Voice & Language
-        │
-        ▼
-Generate Speech
-        │
-        ▼
-Return Audio
-(MP3 / OGG / PCM)
-        │
-        ▼
-Play or Store in Amazon S3
-```
+<img width="1436" height="860" alt="image" src="https://github.com/user-attachments/assets/18198f58-7ad4-4fab-95ab-09533ca1bbfd" />
+
 
 ---
 
@@ -226,38 +197,28 @@ Amazon Polly integrates with:
 
 Sign in to the AWS Management Console.
 
-Navigate to:
+Navigate to AWS polly and In the left navigation pane, click: `text-to-speech`
 
-```text
-AWS Console
-→ Amazon Polly
-```
+<img width="1915" height="905" alt="image" src="https://github.com/user-attachments/assets/8732e62e-1133-414a-805a-bface4d346db" />
+
 
 ---
+
+
+
 
 ## Step 2
-
-In the left navigation pane, click:
-
-```text
-Text-to-Speech
-```
-
----
-
-## Step 3
 
 Under **Input text**, enter the text you want Amazon Polly to convert into speech.
 
 Example:
 
-```text
-Welcome to Amazon Polly. This is a sample text-to-speech conversion.
-```
+<img width="1915" height="905" alt="image" src="https://github.com/user-attachments/assets/6c4fdc04-62da-4863-8cff-1860cf6be5d9" />
+
 
 ---
 
-## Step 4
+## Step 3
 
 Choose the speech engine.
 
@@ -267,9 +228,7 @@ Available options include:
 - Neural
 - Generative (available for supported voices and regions)
 
----
-
-## Step 5
+<img width="1607" height="556" alt="image" src="https://github.com/user-attachments/assets/7d9d9c60-2bd9-4f5b-b349-bf4a56276992" />
 
 Select the language.
 
@@ -282,9 +241,13 @@ Example:
 - German
 - French
 
+
 ---
 
-## Step 6
+
+
+
+## Step 4
 
 Choose a voice from the available list.
 
@@ -298,7 +261,7 @@ Example:
 
 ---
 
-## Step 7
+## Step 5
 
 (Optional) Enable SSML if you want to customize pronunciation, pauses, emphasis, or speaking style.
 
@@ -312,10 +275,11 @@ Example:
     Thank you.
 </speak>
 ```
+<img width="1607" height="556" alt="image" src="https://github.com/user-attachments/assets/81121c74-b67f-4f85-92e1-6c5a149959e8" />
 
 ---
 
-## Step 8
+## Step 6
 
 Click:
 
@@ -329,23 +293,12 @@ Amazon Polly generates and plays the synthesized speech.
 
 ## Step 9
 
-If satisfied with the output, click:
+If satisfied with the output, you can download the output or save it to S3.
 
-```text
-Download Audio
-```
+<img width="1920" height="587" alt="image" src="https://github.com/user-attachments/assets/5e32775b-9471-4dfb-bd65-25dd318b088e" />
 
-The generated speech is downloaded in the selected audio format (for example, MP3).
 
----
 
-## Step 10 (Optional)
-
-To use Amazon Polly programmatically:
-
-- Create an IAM user or role with Amazon Polly permissions.
-- Use the AWS SDK, AWS CLI, or REST API.
-- Store generated audio in Amazon S3 if required by your application.
 
 ---
 
