@@ -1,5 +1,7 @@
 # AWS Cloud9
 
+<img width="645" height="78" alt="image" src="https://github.com/user-attachments/assets/1c5918bb-9950-49cf-ad94-fd2ccfa1d8ea" />
+
 ## Cloud-Based Integrated Development Environment (IDE)
 
 **AWS Cloud9** is a fully managed, cloud-based Integrated Development Environment (IDE) that enables developers to write, run, debug, and collaborate on code directly from a web browser. It comes preconfigured with popular programming languages, SDKs, and developer tools, eliminating the need to install software locally.
