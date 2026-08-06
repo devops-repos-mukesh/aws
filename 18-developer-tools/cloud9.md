@@ -71,22 +71,8 @@ With Cloud9:
 
 # 3. AWS Cloud9 Architecture
 
-```text
-Developer
-     │
-     ▼
- Web Browser
-     │
-     ▼
- AWS Cloud9 IDE
-     │
-     ▼
- Amazon EC2 Instance
-     │
-     ▼
-AWS Services
-(S3, Lambda, EC2, DynamoDB, etc.)
-```
+<img width="504" height="603" alt="image" src="https://github.com/user-attachments/assets/68d41d63-8c50-40eb-beef-824e92c81e0d" />
+
 
 ---
 
@@ -138,24 +124,8 @@ Allows multiple developers to edit and debug the same project in real time.
 
 # 5. Workflow
 
-```text
-Developer
-      │
-      ▼
-Open Cloud9 IDE
-      │
-      ▼
-Write Code
-      │
-      ▼
-Run & Debug
-      │
-      ▼
-Test Application
-      │
-      ▼
-Deploy to AWS
-```
+<img width="504" height="678" alt="image" src="https://github.com/user-attachments/assets/32df337e-0fb9-4a01-b345-3996eb8aa7c0" />
+
 
 ---
 
