@@ -207,6 +207,9 @@ Choose an existing IAM service role or allow the console to create one.
 
 The role must provide CodeBuild with the permissions required to access the source, artifacts, logs, and other AWS resources used by the build.
 
+<img width="1173" height="405" alt="image" src="https://github.com/user-attachments/assets/13fb45d1-7dd9-4f4e-a507-8cb90a2c4831" />
+
+
 ## Step 6: Configure Buildspec
 
 Choose:
@@ -223,6 +226,8 @@ buildspec.yml
 
 CodeBuild can use it automatically.
 
+<img width="1612" height="622" alt="image" src="https://github.com/user-attachments/assets/5f08c020-f27f-49bc-ac6f-95ef59acb81b" />
+
 ## Step 7: Configure Artifacts
 
 If the build produces an output artifact, configure the artifact destination.
@@ -238,6 +243,8 @@ Then select the required S3 bucket.
 ## Step 8: Configure Logs
 
 Enable CloudWatch Logs so that build output can be viewed and troubleshooting can be performed easily.
+
+<img width="1583" height="292" alt="image" src="https://github.com/user-attachments/assets/758c6d0c-f3b7-4fd7-9f88-af278cc57111" />
 
 ## Step 9: Create the Project
 
