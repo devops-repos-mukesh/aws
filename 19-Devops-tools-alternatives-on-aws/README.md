@@ -42,28 +42,8 @@ With CodeBuild, you get managed build environments, automatic scaling, pay-as-yo
 
 # 3. AWS CodeBuild Architecture
 
-```text
-Developer
-    |
-    v
-Source Repository
-(GitHub / GitLab / S3)
-    |
-    v
-AWS CodeBuild
-    |
-    +--> Install Dependencies
-    +--> Pre-Build
-    +--> Build
-    +--> Test
-    +--> Post-Build
-    |
-    v
-Build Artifact
-    |
-    v
-S3 / ECR / Deployment Service
-```
+<img width="1476" height="340" alt="image" src="https://github.com/user-attachments/assets/427917be-f2a8-4f86-a9f0-7bf3cfd38e00" />
+
 
 ---
 
