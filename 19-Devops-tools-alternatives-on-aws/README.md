@@ -20,7 +20,7 @@ AWS CodeBuild is a fully managed service that compiles source code, runs tests, 
 10. [Common Use Cases](#10-common-use-cases)
 11. [Advantages](#11-advantages)
 12. [Best Practices](#12-best-practices)
-13. [Summary](#13-summary)
+
 
 ---
 
@@ -81,30 +81,8 @@ Build logs can be sent to Amazon CloudWatch Logs for monitoring and troubleshoot
 
 # 5. CodeBuild Workflow
 
-```text
-Source Code
-     |
-     v
-CodeBuild Project
-     |
-     v
-Build Environment
-     |
-     v
-Install
-     |
-     v
-Pre-Build
-     |
-     v
-Build
-     |
-     v
-Post-Build
-     |
-     v
-Artifacts
-```
+<img width="1476" height="568" alt="image" src="https://github.com/user-attachments/assets/2aee7675-0952-4f2a-9d4a-3b354cd2637f" />
+
 
 CodeBuild downloads the source code, creates the configured build environment, reads the buildspec, executes the commands, and produces the configured output.
 
@@ -339,28 +317,3 @@ CodeDeploy / ECS / EKS
 
 ---
 
-# 13. Summary
-
-AWS CodeBuild is a managed CI service that automates compiling, testing, packaging, and building applications. A CodeBuild project defines the source repository, build environment, buildspec, IAM permissions, artifacts, and logging configuration.
-
-A common AWS CI/CD architecture is:
-
-```text
-Developer
-    |
-    v
-GitHub
-    |
-    v
-CodeBuild
-    |
-    +--> Build
-    +--> Test
-    +--> Scan
-    |
-    v
-Artifact
-    |
-    v
-CodePipeline / CodeDeploy / ECS / EKS
-```
