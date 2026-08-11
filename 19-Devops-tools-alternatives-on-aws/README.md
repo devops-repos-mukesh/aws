@@ -1,5 +1,8 @@
 # AWS CodeBuild
 
+<img width="663" height="108" alt="image" src="https://github.com/user-attachments/assets/f3992013-13cf-436f-a06a-591e1884ee43" />
+
+
 ## Managed Continuous Integration (CI) Build Service
 
 AWS CodeBuild is a fully managed service that compiles source code, runs tests, performs build commands, and produces deployable artifacts without requiring you to manage build servers. It is commonly used as the **CI/build stage** of an AWS DevOps pipeline.
@@ -77,11 +80,13 @@ An IAM role that gives CodeBuild permission to access required AWS resources.
 
 Build logs can be sent to Amazon CloudWatch Logs for monitoring and troubleshooting.
 
+
+<img width="1914" height="914" alt="image" src="https://github.com/user-attachments/assets/d73ebcca-edf4-4aca-8e77-b724f045fa53" />
+
+
 ---
 
 # 5. CodeBuild Workflow
-
-<img width="1476" height="568" alt="image" src="https://github.com/user-attachments/assets/2aee7675-0952-4f2a-9d4a-3b354cd2637f" />
 
 
 CodeBuild downloads the source code, creates the configured build environment, reads the buildspec, executes the commands, and produces the configured output.
@@ -126,6 +131,12 @@ Common build phases are:
 - `build`
 - `post_build`
 
+  
+
+<img width="1476" height="568" alt="image" src="https://github.com/user-attachments/assets/2aee7675-0952-4f2a-9d4a-3b354cd2637f" />
+
+<img width="1914" height="914" alt="image" src="https://github.com/user-attachments/assets/8897d344-a0b0-4f2f-8cb5-2acfc9498c3a" />
+
 ---
 
 # 7. Supported Source Providers
@@ -137,6 +148,8 @@ CodeBuild can obtain source code from:
 - Bitbucket
 - Amazon S3
 - AWS CodePipeline
+
+<img width="1914" height="914" alt="image" src="https://github.com/user-attachments/assets/d6db4df3-c68f-4479-9aac-15ca052b3c82" />
 
 ---
 
@@ -161,12 +174,16 @@ Enter a project name, for example:
 ```text
 my-codebuild-project
 ```
+<img width="1612" height="326" alt="image" src="https://github.com/user-attachments/assets/9f483d9c-9ee2-4919-a2fa-2d6f4ffcae87" />
 
 ## Step 3: Configure Source
 
 Choose the required source provider, such as GitHub, GitLab, Bitbucket, Amazon S3, or CodePipeline.
 
 For GitHub, connect your GitHub account and select the repository and source version.
+
+<img width="1612" height="284" alt="image" src="https://github.com/user-attachments/assets/95cf0c97-b958-4c56-9fbf-e4a3a9ac99c6" />
+
 
 ## Step 4: Configure Environment
 
@@ -180,6 +197,7 @@ Operating system → Linux
 Runtime → Standard
 Compute type → Small
 ```
+<img width="1612" height="434" alt="image" src="https://github.com/user-attachments/assets/75728c1b-c764-4a03-bad1-e5477a39ef14" />
 
 Select the runtime and compute resources appropriate for your application.
 
