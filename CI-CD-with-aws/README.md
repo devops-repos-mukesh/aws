@@ -616,64 +616,10 @@ Monitor:
 
 A more complete architecture can look like:
 
-```
-                         Developer
-                             |
-                             | git push
-                             v
-                         GitHub
-                             |
-                             v
-                    +----------------+
-                    | CodePipeline   |
-                    +----------------+
-                             |
-                             v
-                    +----------------+
-                    | Source Stage   |
-                    +----------------+
-                             |
-                             v
-                    +----------------+
-                    |   CodeBuild    |
-                    +----------------+
-                       |     |     |
-                       |     |     |
-                       v     v     v
-                    Unit   Sonar   Trivy
-                    Test   Qube
-                       \     |     /
-                        \    |    /
-                         \   |   /
-                          v  v  v
-                    +----------------+
-                    | Build Artifact |
-                    +----------------+
-                             |
-                             v
-                         Amazon S3
-                             |
-                             v
-                    +----------------+
-                    | Deploy Stage   |
-                    +----------------+
-                             |
-                +------------+------------+
-                |            |            |
-                v            v            v
-             CodeDeploy     ECS          Lambda
-                |            |            |
-                v            v            v
-              EC2          ECR        Function
-                |            |
-                +------------+
-                       |
-                       v
-                  Application
-                       |
-                       v
-                  CloudWatch
-```
+<img width="1440" height="1464" alt="image" src="https://github.com/user-attachments/assets/1e0a5486-aa4b-4d8f-89af-2cd6f8d50903" />
+
+<img width="1440" height="1168" alt="image" src="https://github.com/user-attachments/assets/9e12c25f-8ccd-4020-818a-05ee34d3dfe4" />
+
 
 ## Recommended AWS CI/CD Learning Path
 
