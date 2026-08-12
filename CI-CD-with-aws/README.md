@@ -141,7 +141,6 @@ CodeDeploy automates application deployments to supported compute environments s
 
 Example:
 
-```
 <img width="800" height="795" alt="image" src="https://github.com/user-attachments/assets/d39fb97d-3795-4eb0-9b02-f443e149fc45" />
 
 
