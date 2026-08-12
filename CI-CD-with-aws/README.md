@@ -142,38 +142,15 @@ CodeDeploy automates application deployments to supported compute environments s
 Example:
 
 ```
-CodeBuild
-    |
-    | application.zip
-    v
-S3
-    |
-    v
-CodeDeploy
-    |
-    v
-EC2
-```
+<img width="800" height="795" alt="image" src="https://github.com/user-attachments/assets/d39fb97d-3795-4eb0-9b02-f443e149fc45" />
+
 
 ### Amazon ECR
 
 For containerized applications:
 
-```
-Source
-   |
-   v
-CodeBuild
-   |
-   | docker build
-   |
-   | docker push
-   v
-Amazon ECR
-   |
-   v
-ECS / EKS
-```
+
+<img width="800" height="795" alt="image" src="https://github.com/user-attachments/assets/2454c53d-3b4d-4f6f-8905-7c0b60318d6f" />
 
 ### Amazon CloudWatch
 
@@ -189,29 +166,13 @@ CloudWatch can be used to monitor:
 
 The following example creates:
 
-```
-GitHub
-   ↓
-CodePipeline
-   ↓
-CodeBuild
-   ↓
-S3 Artifact
-   ↓
-Deployment
-```
+<img width="800" height="795" alt="image" src="https://github.com/user-attachments/assets/38263e5c-32a1-4afe-9dc0-0d9ac5335982" />
+
 
 For a simple learning environment, you can start with:
 
-```
-GitHub
-   ↓
-CodePipeline
-   ↓
-CodeBuild
-   ↓
-S3
-```
+<img width="800" height="795" alt="image" src="https://github.com/user-attachments/assets/31a62408-f3a6-4384-8ca3-95f0af5c63c1" />
+
 
 and add CodeDeploy/ECS/Lambda later.
 
