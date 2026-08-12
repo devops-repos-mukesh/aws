@@ -41,25 +41,8 @@ Continuous Integration (CI) is the practice of frequently integrating code chang
 
 Typical CI process:
 
-```
-Developer
-    |
-    | git push
-    v
-Source Repository
-    |
-    v
-Build
-    |
-    v
-Unit Tests
-    |
-    v
-Code Quality / Security Checks
-    |
-    v
-Build Artifact
-```
+<img width="804" height="804" alt="image" src="https://github.com/user-attachments/assets/5673a5f3-c512-4582-b2d9-78e8651d2f95" />
+
 
 The goal is to identify compilation errors, test failures, and code-quality problems as early as possible.
 
@@ -67,24 +50,8 @@ The goal is to identify compilation errors, test failures, and code-quality prob
 
 Continuous Delivery (CD) extends CI by automatically preparing validated application changes for deployment.
 
-```
-Build
-  |
-  v
-Test
-  |
-  v
-Package
-  |
-  v
-Deploy to Staging
-  |
-  v
-Approval
-  |
-  v
-Production
-```
+<img width="800" height="795" alt="image" src="https://github.com/user-attachments/assets/0f77f616-3d33-4a33-8a6b-14fc8c996ac0" />
+
 
 AWS describes CodePipeline as a continuous delivery service that automates building, testing, and deployment activities.
 
@@ -114,59 +81,8 @@ AWS CodePipeline supports different source providers and can integrate CodeBuild
 ## 3. CI/CD Pipeline Architecture
 
 A typical AWS CI/CD architecture can look like this:
+<img width="497" height="1311" alt="Untitled-2026-08-11-1132" src="https://github.com/user-attachments/assets/2c4aea4b-1ba3-46ec-b0fb-4921ac74295f" />
 
-```
-                    Developer
-                        |
-                        | git push
-                        v
-                 +--------------+
-                 |    GitHub    |
-                 +--------------+
-                        |
-                        | Source Change
-                        v
-              +--------------------+
-              |   AWS CodePipeline |
-              +--------------------+
-                        |
-                        v
-              +--------------------+
-              |   Source Stage     |
-              +--------------------+
-                        |
-                        v
-              +--------------------+
-              |   AWS CodeBuild    |
-              |                    |
-              | - Compile          |
-              | - Unit Tests       |
-              | - Quality Checks   |
-              | - Security Checks  |
-              +--------------------+
-                        |
-                        v
-                +---------------+
-                | S3 Artifacts  |
-                +---------------+
-                        |
-                        v
-              +--------------------+
-              |   Deploy Stage     |
-              +--------------------+
-                        |
-             +----------+-----------+
-             |          |           |
-             v          v           v
-          EC2/       ECS/EKS      Lambda
-        CodeDeploy
-             |
-             v
-        Application
-             |
-             v
-        CloudWatch
-```
 
 CodePipeline represents the release workflow as stages and actions, allowing build, test, deployment, and other actions to be connected into one automated process.
 
@@ -174,50 +90,8 @@ CodePipeline represents the release workflow as stages and actions, allowing bui
 
 The complete workflow is:
 
-```
-Developer pushes code
-        |
-        v
-Source Repository
-        |
-        v
-CodePipeline
-        |
-        v
-Source Stage
-        |
-        v
-CodeBuild
-        |
-        +----> Compile
-        |
-        +----> Unit Tests
-        |
-        +----> Code Quality
-        |
-        +----> Security Scan
-        |
-        v
-Build Artifact
-        |
-        v
-Amazon S3
-        |
-        v
-Deploy
-        |
-        v
-Staging Environment
-        |
-        v
-Approval
-        |
-        v
-Production
-        |
-        v
-CloudWatch Monitoring
-```
+<img width="267" height="1070" alt="Untitled-2026-08-11-1132" src="https://github.com/user-attachments/assets/a0b540c8-6b90-49fc-98ad-d7bd8b2593f1" />
+
 
 ## 5. AWS Services Used
 
