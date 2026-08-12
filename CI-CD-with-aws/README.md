@@ -538,30 +538,8 @@ AWS's CodePipeline documentation emphasizes that the pipeline service role must 
 
 A production CI/CD pipeline can add security and quality stages:
 
-```
-Source
-   |
-   v
-Build
-   |
-   v
-Unit Test
-   |
-   v
-SonarQube
-   |
-   v
-Trivy
-   |
-   v
-OWASP Dependency Check
-   |
-   v
-Artifact
-   |
-   v
-Deploy
-```
+<img width="1440" height="1424" alt="image" src="https://github.com/user-attachments/assets/4605aacf-9477-4516-99bd-bde956bc2c7c" />
+
 
 Possible tools:
 
@@ -580,27 +558,8 @@ AWS Prescriptive Guidance also demonstrates CI/CD pipelines containing testing a
 
 Use Amazon CloudWatch for monitoring.
 
-```
-CodePipeline
-      |
-      +---- Pipeline execution
-      |
-      v
-CodeBuild
-      |
-      +---- Build logs
-      |
-      v
-CodeDeploy
-      |
-      +---- Deployment events
-      |
-      v
-Application
-      |
-      v
-CloudWatch
-```
+<img width="1440" height="1152" alt="image" src="https://github.com/user-attachments/assets/3242e680-dfa2-46c0-848e-eb5ed6a60205" />
+
 
 Monitor:
 
