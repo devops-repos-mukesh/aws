@@ -1,9 +1,13 @@
 # AWS DevOps Agent
-AWS DevOps Agent is an always-available AI operations teammate for **release management** and **production operations**.
 
-AWS DevOps Agent is a fully managed frontier agent that investigates incidents, reviews release readiness, runs change-specific tests, and recommends operational improvements without requiring you to staff a dedicated on-call investigation team around the clock. It is commonly used as the **SRE / incident investigation layer** of an AWS DevOps toolchain.
+## Autonomous AI Operations Teammate
+
+AWS DevOps Agent is a fully managed frontier agent that investigates incidents, reviews release readiness, runs change-specific tests, and recommends operational improvements. It is commonly used as the **SRE / incident investigation layer** of an AWS DevOps toolchain.
+
 ---
+
 ## Table of Contents
+
 1. [What is AWS DevOps Agent?](#1-what-is-aws-devops-agent)
 2. [Why Use AWS DevOps Agent?](#2-why-use-aws-devops-agent)
 3. [AWS DevOps Agent Architecture](#3-aws-devops-agent-architecture)
@@ -16,126 +20,151 @@ AWS DevOps Agent is a fully managed frontier agent that investigates incidents, 
 10. [Common Use Cases](#10-common-use-cases)
 11. [Advantages](#11-advantages)
 12. [Best Practices](#12-best-practices)
+
 ---
+
 # 1. What is AWS DevOps Agent?
-AWS DevOps Agent is an AI-powered, always-available agent used to review software changes for production risk, investigate operational issues, identify root cause, and recommend preventative improvements. It removes the need to manually correlate telemetry, code, deployments, and runbooks during incidents.
-It works across AWS, multicloud, and on-premises environments by learning your resources and their relationships, then correlating observability data, source repositories, and CI/CD pipelines.
-You manage configuration in the **AWS Management Console**. Operators use the **DevOps Agent web app** for day-to-day investigations, chat, topology browsing, and prevention recommendations.
+
+AWS DevOps Agent is an AI-powered, always-available agent used to review software changes, investigate operational issues, identify root cause, and recommend preventative improvements. It correlates telemetry, code, deployments, and runbooks across AWS, multicloud, and on-premises environments.
+
+Administrators configure it in the **AWS Management Console**. Operators use the **DevOps Agent web app** for investigations, chat, topology, and recommendations.
+
 ---
+
 # 2. Why Use AWS DevOps Agent?
-Without AWS DevOps Agent, organizations may need to:
-- Manually correlate logs, metrics, traces, tickets, and deployments
-- Switch between multiple observability consoles during incidents
-- Maintain tribal knowledge of service dependencies
-- Staff 24/7 investigation coverage
-- Discover recurring incidents only after they happen again
-With AWS DevOps Agent, you get:
-- Autonomous incident investigation when an alert or ticket arrives
-- Application topology discovery
-- Root-cause hypotheses with mitigation steps
-- Release readiness review and autonomous release testing (preview)
-- Natural-language SRE tasks in the operator web app
-- Pay-for-agent-time usage, billed per second
+
+Without it, teams often correlate logs, metrics, traces, tickets, and deployments by hand, switch consoles during incidents, and staff 24/7 investigation coverage.
+
+With it, you get autonomous investigation when an alert or ticket arrives, topology discovery, root-cause hypotheses with mitigation steps, release readiness review (preview), natural-language SRE tasks, and pay-for-agent-time billing (per second).
+
 ---
+
 # 3. AWS DevOps Agent Architecture
-AWS DevOps Agent uses a **dual-console** model:
+
 ```text
-Administrators                         Operators
-AWS Management Console                 DevOps Agent web app
-        |                                      |
-        v                                      v
- Create Agent Space                    Chat / investigations
- Configure IAM roles                   Topology browser
- Associate AWS accounts                Prevention recommendations
- Register integrations                 Custom charts / reports
- Manage access                         Custom agents / schedules
-        |                                      |
-        +------------------+-------------------+
-                           |
-                           v
-                    Agent Space
+AWS Management Console          DevOps Agent web app
+ (admins: Agent Space, IAM,      (operators: chat, topology,
+  accounts, integrations)         investigations, prevention)
+                 \                     /
+                  \                   /
+                   v                 v
+                      Agent Space
                            |
            +---------------+---------------+
-           |               |               |
            v               v               v
      AWS accounts     Observability      Code / CI/CD
-     CloudWatch       Datadog            GitHub / GitLab
-     Topology         Dynatrace          Azure DevOps
-                      Splunk / Grafana
-                      New Relic
+     CloudWatch       Datadog, Splunk    GitHub / GitLab
+                      Dynatrace, Grafana Azure DevOps
 ```
-Typical investigation path:
-```text
-Alert / ticket / chat request
-   |
-   v
-AWS DevOps Agent
-   |
-   +--> Topology and resource map
-   +--> Telemetry (logs, metrics, traces)
-   +--> Recent deployments and code changes
-   +--> Skills / runbooks
-   |
-   v
-Hypotheses, observations, root cause, mitigation
-   |
-   v
-Slack / ServiceNow / PagerDuty / AWS Support
-```
+
 ---
+
 # 4. Core Components
+
 ### Agent Space
-An Agent Space is a logical container that defines what AWS DevOps Agent can access. It includes AWS account associations, third-party integrations, IAM roles, user access, and investigation history.
-Use separate Agent Spaces for different teams, production vs non-production, or compliance boundaries. Data, chat history, and recommendations are isolated per Agent Space.
+
+Logical container for AWS accounts, integrations, IAM roles, user access, and investigation history. Isolate teams, environments, and compliance boundaries with separate spaces.
+
 ### Topology
-AWS DevOps Agent automatically discovers applications, services, and resources, then maps relationships using resource discovery, CloudFormation and tags, CI/CD mapping, and observability behavior.
-Operators can browse the topology graph in the web app or ask Chat questions such as which Lambda functions connect to a DynamoDB table.
+
+Automatic map of applications, services, and resource relationships, used during investigations and prevention recommendations.
+
 ### Operator Web App
-A dedicated web application outside the AWS Management Console. Operators launch investigations, chat in natural language, view topology, review recommendations, and create charts or scheduled custom agents.
-Authentication can use IAM Identity Center, an external OIDC identity provider, or a short-lived IAM admin access link from the console.
-### Skills
-Reusable modules that encode runbooks, architectural standards, and operational practices so the agent executes specialized tasks consistently.
-### Integrations
-Built-in connections to observability tools, source control, CI/CD, and incident communication channels. You can also connect private or remote MCP servers, and invoke the agent through MCP, ACP, or A2A.
-### Service Roles
-IAM roles that the Agent Space assumes to query CloudWatch, describe resources, build topology, and access associated AWS accounts. Secondary source accounts use additional roles.
-### Recommendations and Artifacts
-Investigation findings, mitigation plans, prevention recommendations, topology memories, and summary reports produced by the agent.
+
+Standalone app for chat, investigations, topology, and scheduled custom agents. Auth can use IAM Identity Center, an OIDC IdP, or a short IAM admin access link.
+
+### Skills, Integrations, and Service Roles
+
+Skills encode runbooks. Integrations connect observability, source, CI/CD, and incident tools (including MCP). IAM roles let the agent query CloudWatch, describe resources, and access associated accounts.
+
 ---
+
 # 5. DevOps Agent Workflow
-AWS DevOps Agent receives an alert, ticket, or operator prompt, loads the Agent Space topology and integrations, correlates telemetry with code and deployments, applies skills, and returns observations, root-cause hypotheses, and mitigation steps.
+
+The agent receives an alert, ticket, or chat prompt, loads topology and integrations, correlates telemetry with code and deployments, applies skills, and returns observations, root cause, and mitigation.
+
 ```text
-Trigger
-   |
-   v
-Start investigation
-   |
-   v
-Gather context
- (topology, telemetry, code, CI/CD, skills)
-   |
-   v
-Analyze
- (hypotheses, blast radius, recent changes)
-   |
-   v
-Report
- (root cause, mitigation, prevention)
-   |
-   v
-Notify / hand off
- (Slack, ticketing, coding agent, AWS Support)
+Trigger → Investigate → Gather context → Analyze → Report → Notify / hand off
 ```
-Release management (preview) follows a similar loop before production:
+
+Release management (preview): code change → readiness review → change-specific tests → findings in PR / IDE / pipeline.
+
+---
+
+# 6. Agent Skills
+
+Skills teach the agent your runbooks and standards. Create them in the console or CLI, optionally with a schedule (for example, a daily health report).
+
+```bash
+aws devops-agent associate-service \
+  --agent-space-id <AGENT_SPACE_ID> \
+  --service-id <SERVICE_ID> \
+  --configuration '{"github":{"repoName":"<REPO>","owner":"<OWNER>"}}' \
+  --region <REGION>
+```
+
+---
+
+# 7. Supported Integrations
+
+- **Observability:** CloudWatch, Datadog, Dynatrace, New Relic, Splunk, Grafana
+- **Source / CI/CD:** GitHub, GitLab, Azure DevOps
+- **Incident / collab:** ServiceNow, PagerDuty, Slack, Microsoft Teams, AWS Support
+- **Extensibility:** private or remote MCP servers; MCP, ACP, and A2A
+
+CloudWatch uses IAM roles. OAuth tools such as GitHub are registered once at the account level, then associated per Agent Space.
+
+---
+
+# 8. Creating an Agent Space Using AWS Console
+
+**Step 1:** AWS Console → AWS DevOps Agent → Agent Spaces → **Create Agent Space**.
+
+**Step 2:** Name the space (for example `ecommerce-prod-agent-space`).
+
+**Step 3:** Choose or create an IAM service role for CloudWatch, topology, and source accounts.
+
+**Step 4:** Associate a primary monitoring account and optional secondary application accounts.
+
+**Step 5:** Enable the operator web app (IAM Identity Center, OIDC IdP, or IAM admin link).
+
+**Step 6:** Connect observability, source/CI/CD, and optionally Slack / ServiceNow / PagerDuty.
+
+**Step 7:** Review and click **Create Agent Space**. Open the web app and confirm Chat, Topology, and Investigations.
+
+---
+
+# 9. Running an Investigation
+
 ```text
-Code change / pull request
-   |
-   v
-Release readiness review
-   |
-   v
-Change-specific tests
-   |
-   v
-Findings in PR / IDE / pipeline
+AWS DevOps Agent → Agent Spaces → Select space → Open web app → Start investigation / Chat
 ```
+
+Start from an alert webhook, support ticket, Chat prompt, or scheduled custom agent. Monitor status, evidence, duration, and follow-up. You can open an AWS Support case from an investigation with that context attached.
+
+---
+
+# 10. Common Use Cases
+
+Incident investigation, root-cause analysis, MTTR reduction, recurring-incident prevention, on-demand SRE questions, release readiness and change-specific testing (preview), AI-generated PR review, and daily health reports.
+
+```text
+Alert → AWS DevOps Agent (investigate / correlate / mitigate / prevent)
+      → Slack / ServiceNow / PagerDuty
+      → Fix in GitHub / GitLab
+      → CodePipeline / ECS / EKS
+```
+
+---
+
+# 11. Advantages
+
+Fully managed, no investigation servers to maintain, starts as soon as an alert arrives, learns topology over time, works across AWS / multicloud / on-prem, integrates with existing tools, pay per second of agent time.
+
+---
+
+# 12. Best Practices
+
+Use a dedicated monitoring account. Separate prod and non-prod Agent Spaces. Use least-privilege IAM. Connect CloudWatch plus an APM/log platform. Enable CloudTrail. Encode runbooks as skills. Route findings to on-call tools. Do not put secrets in chat. Manage Agent Spaces and roles with IaC.
+
+---
